@@ -1,0 +1,13 @@
+.unOrderList {
+	list-style-type: disc;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: auto;
+}
+
+.btnDelete {
+	background-color: red;
+	color: white;
+}
