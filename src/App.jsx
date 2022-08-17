@@ -25,7 +25,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1>TODO APP</h1>
+			<h1>TODO APP REACT</h1>
 			<div className="card">
 				<input
 					type="text"
