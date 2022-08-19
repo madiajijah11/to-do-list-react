@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 import TodoList from "./components/TodoList";
 
@@ -18,14 +18,15 @@ function App() {
 	};
 
 	const handleDelete = (e) => {
-		const index = e.target.value;
-		todoList.splice(index, 1);
+		todoList.splice(e, 1);
 		setTodo([...todo, todoList]);
 	};
 
 	return (
 		<div className="App">
-			<h1>TODO APP REACT</h1>
+			<h1 style={{ display: "flex", alignContent: "center", justifyContent: "center" }}>
+				TODO APP REACT
+			</h1>
 			<div className="card">
 				<input
 					type="text"
@@ -33,19 +34,19 @@ function App() {
 					placeholder="to do item"
 					autoComplete="off"
 					value={input}
-					onChange={(e) => setInput(e.target.value)}
+					onChange={(text) => setInput(text.target.value)}
 					onKeyDown={(e) => {
 						if (e.key === "Enter") handleInput();
 					}}
 					style={{ height: "30px", padding: "2px" }}
 				/>
-				<button type="submit" onClick={handleInput} className="btnSubmit">
+				<button type="submit" onClick={() => handleInput()} className="btnSubmit">
 					Add
 				</button>
 			</div>
 			<div className="listContainer">
 				{todoList.map((item, index) => {
-					return <TodoList item={item} index={index} delete={handleDelete} />;
+					return <TodoList item={item} index={index} delete={(e) => handleDelete(e)} />;
 				})}
 			</div>
 			<p className="read-the-docs">created by madiajijah11</p>
